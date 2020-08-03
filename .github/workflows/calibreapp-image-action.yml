@@ -19,15 +19,13 @@
 #
 name: Compress images
 on:
-  pull_request:
+  pull_request_target:
     paths:
       - '**.jpg'
       - '**.png'
       - '**.webp'
 jobs:
   build:
-    # Only run on Pull Requests within the same repository, and not from forks as they don't work
-    if: github.event.pull_request.head.repo.full_name == github.repository
     name: calibreapp/image-actions
     runs-on: ubuntu-latest
     steps:
